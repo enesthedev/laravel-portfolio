@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "enesthedev/prtf",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "A Programmer Portfolio.",
+    "keywords": ["framework", "laravel", "portfolio", "programmer"],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
