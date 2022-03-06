@@ -3,6 +3,11 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter;
+use Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes;
+use Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath;
+use Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect;
+use Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect;
 
 class Kernel extends HttpKernel
 {
@@ -63,5 +68,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'localize' => LaravelLocalizationRoutes::class,
+        'localization.redirect' => LaravelLocalizationRedirectFilter::class,
+        'locale.session.redirect' => LocaleSessionRedirect::class,
+        'locale.cookie.redirect' => LocaleCookieRedirect::class,
+        'locale.view.path' => LaravelLocalizationViewPath::class
     ];
 }
