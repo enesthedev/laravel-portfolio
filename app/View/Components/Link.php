@@ -30,6 +30,6 @@ class Link extends TailwindComponent
      */
     public function render()
     {
-        return view('components.link');
+        return view('components.web.link');
     }
 }

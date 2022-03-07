@@ -14,6 +14,6 @@ class WelcomeController extends Controller
      */
     public function index(Request $request)
     {
-        return view('welcome');
+        return view('web.welcome');
     }
 }
