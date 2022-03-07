@@ -16,5 +16,5 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization as Localization;
 Route::prefix(Localization::setLocale())
     ->middleware(['locale.session.redirect','localization.redirect','locale.view.path'])
     ->group(function () {
-        
+        Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index']);
     });
