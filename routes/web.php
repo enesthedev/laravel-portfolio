@@ -16,5 +16,17 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization as Localization;
 Route::prefix(Localization::setLocale())
     ->middleware(['locale.session.redirect','localization.redirect','locale.view.path'])
     ->group(function () {
+
         Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index']);
+
+        Route::prefix(Localization::transRoute('routes.manage'))
+            ->name('admin.')
+            ->group(function () {
+
+                Route::middleware('guest')
+                    ->group(function () {
+                        Route::get(Localization::transRoute('routes.login'), [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'index'])
+                            ->name('login');
+                    });
+            });
     });
