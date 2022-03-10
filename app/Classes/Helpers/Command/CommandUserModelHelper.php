@@ -43,7 +43,7 @@ class CommandUserModelHelper
      * @param bool $printable
      * @return mixed
      */
-    public function getSpecificUser(string $searchType, string $searchValue, bool $printable)
+    public function getSpecificUsers(string $searchType, string $searchValue, bool $printable)
     {
         $user = User::where($this->types[$searchType], $searchValue)
             ->get(['id', 'name', 'email']);
