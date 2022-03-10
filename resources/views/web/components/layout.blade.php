@@ -15,6 +15,15 @@
     <title>Document</title>
 </head>
 <body class="antialiased bg-white text-stone-800 dark:bg-stone-900 dark:text-stone-100">
-    <span class="font-inter">test</span>
+
+    <div class="flex flex-col bg-white bg-opacity-20 max-w-screen-sm w-screen h-screen mx-auto pt-[5rem]">
+        <x-header :title="empty($applicationTitle) ? __('Application Title') : $applicationTitle"
+                  :routes="[
+                    ['Home', route('welcome')],
+                    ['References', ''],
+                    ['Blog Posts', '']
+                  ]"
+        ></x-header>
+    </div>
 </body>
 </html>
