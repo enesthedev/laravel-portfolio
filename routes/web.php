@@ -17,7 +17,8 @@ Route::prefix(Localization::setLocale())
     ->middleware(['locale.session.redirect','localization.redirect','locale.view.path'])
     ->group(function () {
 
-        Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index']);
+        Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index'])
+            ->name('welcome');
 
         Route::prefix(Localization::transRoute('routes.manage'))
             ->name('admin.')
