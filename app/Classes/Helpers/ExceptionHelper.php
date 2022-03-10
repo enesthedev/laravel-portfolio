@@ -7,6 +7,8 @@ use http\Exception\UnexpectedValueException;
 class ExceptionHelper
 {
     /**
+     * Retieve's given exception name.
+     *
      * @param $exception
      * @return string
      */
