@@ -1,1 +1,3 @@
-@extends('web.components.layout')
+<x-layout>
+    test
+</x-layout>

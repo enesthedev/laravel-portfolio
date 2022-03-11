@@ -16,15 +16,18 @@
 </head>
 <body class="antialiased bg-white text-stone-800 dark:bg-stone-900 dark:text-stone-100">
 
-    <div class="flex flex-col bg-white bg-opacity-20 max-w-screen-sm w-screen h-screen mx-auto pt-[5rem]">
+    <div class="flex flex-col max-w-screen-sm w-screen h-screen mx-auto pt-[5rem]">
         <x-header :title="empty($applicationTitle) ? __('Application Title') : $applicationTitle"
                   :description="empty($applicationDescription) ? __('Application Description') : $applicationDescription"
-                  :routes="[
+                  :routes="isset($admin) ? [
+                    [__('Home'), route('welcome')]
+                  ] : [
                     [__('Home'), route('welcome')],
                     [__('References'), ''],
                     [__('Blog Posts'), '']
                   ]"
         ></x-header>
+        {{ $slot }}
     </div>
 </body>
 </html>

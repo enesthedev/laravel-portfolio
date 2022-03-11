@@ -15,10 +15,6 @@ class WelcomeController extends Controller
      */
     public function index(Request $request)
     {
-        return view('web.welcome')
-            ->with([
-                'applicationTitle' => $this->applicationSettings->application_title,
-                'applicationDescription' => $this->applicationSettings->application_description
-            ]);
+        return view('web.welcome');
     }
 }
