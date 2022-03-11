@@ -13,9 +13,12 @@ class WelcomeController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index(ApplicationSettings $settings, Request $request)
+    public function index(Request $request)
     {
         return view('web.welcome')
-            ->with([ 'applicationTitle' => $settings->application_title ]);
+            ->with([
+                'applicationTitle' => $this->applicationSettings->application_title,
+                'applicationDescription' => $this->applicationSettings->application_description
+            ]);
     }
 }
