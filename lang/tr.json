@@ -1,7 +1,10 @@
 {
   "Application Title": "Uygulama Başlığı",
+  "Application Description": "Uygulama açıklama metni",
+
+  "Progressive blog website for developers, beginners and software engineers!": "Kendini geliştirmek isteyenler, uygulama geliştiricileri ve yazılım mühendisleri için tasalarlanmış müthiş bir site!",
 
   "Home": "Anasayfa",
-  "References": "Referanslarım",
-  "Blog Posts": "Yazılarım"
+  "References": "Referanslar",
+  "Blog Posts": "Makaleler"
 }

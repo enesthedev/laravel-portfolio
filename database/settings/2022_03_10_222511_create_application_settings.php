@@ -13,5 +13,6 @@ class CreateApplicationSettings extends SettingsMigration
     public function up(): void
     {
         $this->migrator->add('application.application_title', env('APP_NAME'));
+        $this->migrator->add('application.application_description', env('APP_DESCRIPTION'));
     }
 }

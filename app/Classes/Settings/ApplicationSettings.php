@@ -14,6 +14,13 @@ class ApplicationSettings extends Settings
     public string $application_title;
 
     /**
+     * Variable of application description.
+     *
+     * @var string
+     */
+    public string $application_description;
+
+    /**
      * Group of settings class.
      *
      * @return string
