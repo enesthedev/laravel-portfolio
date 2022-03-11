@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Classes\Settings\ApplicationSettings;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller

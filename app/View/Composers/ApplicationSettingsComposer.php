@@ -2,23 +2,22 @@
 
 namespace App\View\Composers;
 
-use App\Classes\Settings\ApplicationSettings;
 use Illuminate\View\View;
 
 class ApplicationSettingsComposer
 {
-    protected ApplicationSettings $applicationSettings;
 
-    public function __construct(ApplicationSettings $applicationSettings)
-    {
-        $this->applicationSettings = $applicationSettings;
-    }
-
+    /**
+     * Sets env variables as global variable of views.
+     *
+     * @param View $view
+     * @return void
+     */
     public function compose(View $view)
     {
         $view->with([
-            'applicationTitle' => $this->applicationSettings->application_title,
-            'applicationDescription' => $this->applicationSettings->application_description
+            'applicationTitle' => env('APP_NAME'),
+            'applicationDescription' => env('APP_DESCRIPTION')
         ]);
     }
 }
