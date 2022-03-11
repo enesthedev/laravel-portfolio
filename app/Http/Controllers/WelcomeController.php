@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Settings\ApplicationSettings;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -12,8 +13,9 @@ class WelcomeController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index(Request $request)
+    public function index(ApplicationSettings $settings, Request $request)
     {
-        return view('web.welcome');
+        return view('web.welcome')
+            ->with([ 'applicationTitle' => $settings->application_title ]);
     }
 }

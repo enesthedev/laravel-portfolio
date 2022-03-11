@@ -19,9 +19,9 @@
     <div class="flex flex-col bg-white bg-opacity-20 max-w-screen-sm w-screen h-screen mx-auto pt-[5rem]">
         <x-header :title="empty($applicationTitle) ? __('Application Title') : $applicationTitle"
                   :routes="[
-                    ['Home', route('welcome')],
-                    ['References', ''],
-                    ['Blog Posts', '']
+                    [__('Home'), route('welcome')],
+                    [__('References'), ''],
+                    [__('Blog Posts'), '']
                   ]"
         ></x-header>
     </div>
