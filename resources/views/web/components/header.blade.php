@@ -1,6 +1,11 @@
 <div class="flex flex-col gap-y-8">
-    @if($title)
-        <h1 class="font-black font-inter text-4xl">{{ $title }}</h1>
+    @if(! empty($title))
+        <div>
+            <h1 class="font-black font-inter text-4xl">{{ $title }}</h1>
+            @if(! empty($description))
+                <p>{{ __($description) }}</p>
+            @endif
+        </div>
     @endif
 
     @if($routes)

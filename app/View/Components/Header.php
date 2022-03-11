@@ -15,6 +15,13 @@ class Header extends TailwindComponent
     public array $routes;
 
     /**
+     * Description of application.
+     *
+     * @var string
+     */
+    public string $description;
+
+    /**
      * Title of header.
      *
      * @var string|null
@@ -26,11 +33,12 @@ class Header extends TailwindComponent
      *
      * @return void
      */
-    public function __construct(string $title = null, array $routes = [], string $styles = '')
+    public function __construct(string $title = '', string $description = '', array $routes = [], string $styles = '')
     {
         parent::__construct($styles);
 
         $this->title = $title;
+        $this->description = $description;
         $this->routes = $routes;
     }
 
