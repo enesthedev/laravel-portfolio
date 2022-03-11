@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-y-8">
+<div class="flex flex-col gap-y-6">
     @if(! empty($title))
         <div>
             <h1 class="font-black font-inter text-4xl">{{ $title }}</h1>

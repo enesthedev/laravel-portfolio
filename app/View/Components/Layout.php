@@ -15,12 +15,20 @@ class Layout extends Component
     public bool $isAdmin;
 
     /**
+     * Page description.
+     *
+     * @var string
+     */
+    public string $description;
+
+    /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(bool $isAdmin = false)
+    public function __construct(string $description = '', bool $isAdmin = false)
     {
+        $this->description = $description;
         $this->isAdmin = $isAdmin;
     }
 

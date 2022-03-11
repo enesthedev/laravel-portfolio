@@ -5,7 +5,6 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="color-scheme" content="dark light">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +17,8 @@
 
     <div class="flex flex-col max-w-screen-sm w-screen h-screen mx-auto pt-[5rem]">
         <x-header :title="empty($applicationTitle) ? __('Application Title') : $applicationTitle"
-                  :description="empty($applicationDescription) ? __('Application Description') : $applicationDescription"
-                  :routes="isset($admin) ? [
+                  :description="! empty($description) ? $description : (empty($applicationDescription) ? __('Application Description') : $applicationDescription)"
+                  :routes="$isAdmin ? [
                     [__('Home'), route('welcome')]
                   ] : [
                     [__('Home'), route('welcome')],

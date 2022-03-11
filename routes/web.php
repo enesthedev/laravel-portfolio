@@ -24,6 +24,11 @@ Route::prefix(Localization::setLocale())
             ->name('admin.')
             ->group(function () {
 
+                Route::middleware('auth')
+                    ->group(function () {
+                        Route::get('/', function () { echo 'test'; });
+                    });
+
                 Route::middleware('guest')
                     ->group(function () {
                         Route::get(Localization::transRoute('routes.login'), [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'index'])
