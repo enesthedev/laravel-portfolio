@@ -18,9 +18,7 @@
     <div class="flex flex-col max-w-screen-sm w-screen h-screen mx-auto pt-[5rem]">
         <x-header :title="empty($applicationTitle) ? __('Application Title') : $applicationTitle"
                   :description="! empty($description) ? $description : (empty($applicationDescription) ? __('Application Description') : $applicationDescription)"
-                  :routes="$isAdmin ? [
-                    [__('Home'), route('welcome')]
-                  ] : [
+                  :routes="[
                     [__('Home'), route('welcome')],
                     [__('References'), ''],
                     [__('Blog Posts'), '']

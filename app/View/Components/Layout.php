@@ -7,12 +7,6 @@ use phpDocumentor\Reflection\Types\Boolean;
 
 class Layout extends Component
 {
-    /**
-     * isAdmin boolean variable.
-     *
-     * @var bool
-     */
-    public bool $isAdmin;
 
     /**
      * Page description.
