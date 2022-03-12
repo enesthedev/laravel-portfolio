@@ -17,7 +17,7 @@ class ConfirmablePasswordController extends Controller
      */
     public function show(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view('web.auth.confirm-password');
+        return view('admin.auth.confirm-password');
     }
 
     /**

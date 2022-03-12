@@ -1,6 +1,4 @@
-<x-layout :isAdmin="true" :description="__('Sign-in to :applicationName Dash', ['applicationName' => env('APP_NAME')])">
-    <hr class="mt-3"/>
-    <div class="mt-4">
+ <div class="mt-4">
         <form>
             <div class="w-full grid grid-cols-2 gap-4">
                 <div class="mt-4">
@@ -14,4 +12,3 @@
             </div>
         </form>
     </div>
-</x-layout>

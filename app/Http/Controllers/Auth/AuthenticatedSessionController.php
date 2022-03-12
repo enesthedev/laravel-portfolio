@@ -20,7 +20,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function index(): View|Factory|Application
     {
-        return view('web.auth.login');
+        return view('admin.auth.login');
     }
 
     /**
