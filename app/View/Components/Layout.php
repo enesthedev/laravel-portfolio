@@ -3,7 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use phpDocumentor\Reflection\Types\Boolean;
+use function view;
 
 class Layout extends Component
 {
@@ -20,10 +20,9 @@ class Layout extends Component
      *
      * @return void
      */
-    public function __construct(string $description = '', bool $isAdmin = false)
+    public function __construct(string $description = '')
     {
         $this->description = $description;
-        $this->isAdmin = $isAdmin;
     }
 
     /**
