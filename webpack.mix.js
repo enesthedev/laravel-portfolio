@@ -18,7 +18,8 @@ mix.disableSuccessNotifications()
     .js('resources/js/script.js', 'public/scripts')
     .postCss('resources/css/tailwind.css', 'public/styles', [
         require('tailwindcss')
-    ]);
+    ])
+    .copyDirectory('resources/assets', 'public/assets');
 
 if (mix.inProduction()) {
     mix.version();
