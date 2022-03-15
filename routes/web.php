@@ -21,6 +21,7 @@ Route::prefix(Localization::setLocale())
             ->name('welcome');
 
         Route::prefix(Localization::transRoute('routes.manage'))
+            ->middleware('no.index')
             ->name('admin.')
             ->group(function () {
 
