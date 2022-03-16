@@ -49,6 +49,6 @@ class Layout extends Component
      */
     public function render()
     {
-        return view('web.components.layout');
+        return view('web.layouts.layout');
     }
 }
