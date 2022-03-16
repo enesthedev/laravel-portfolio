@@ -1,3 +1,6 @@
+/**
+ *
+ */
 window._ = require('lodash');
 
 /**
@@ -5,12 +8,33 @@ window._ = require('lodash');
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
-
 window.axios = require('axios');
-
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-window.swal = require('sweetalert2');
+/**
+ *  Swal means SweetAlert2. Its need for alerts and toasts.
+ */
+window.swal = require('sweetalert2/dist/sweetalert2');
+window.swal.config = require('../../swal2.config.js')
+
+/**
+ * Toast
+ */
+window.toast = {
+    error: window.swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 5000,
+        timerProgressBar: true,
+        customClass: { ...window.swal.config.toast.classes.error, ...window.swal.config.toast.classes.general },
+        iconHtml: window.swal.config.toast.icons.error,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', window.swal.stopTimer)
+            toast.addEventListener('mouseleave', window.swal.resumeTimer)
+        }
+    })
+}
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

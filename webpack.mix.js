@@ -16,9 +16,10 @@ mix.disableSuccessNotifications()
         processCssUrls: false
     })
     .js('resources/js/script.js', 'public/scripts')
-    .postCss('resources/css/tailwind.css', 'public/styles', [
+    .postCss('resources/css/tailwind.css', 'public/styles/tailwind.css', [
         require('tailwindcss')
     ])
+    .css('resources/css/swal2.css', 'public/styles/swal2.css')
     .copyDirectory('resources/assets', 'public/assets');
 
 if (mix.inProduction()) {
