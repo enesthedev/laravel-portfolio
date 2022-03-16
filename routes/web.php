@@ -13,13 +13,30 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization as Localization;
 |
 */
 
+/**
+ * Localized Routes
+ */
 Route::prefix(Localization::setLocale())
     ->middleware(['locale.session.redirect','localization.redirect','locale.view.path'])
     ->group(function () {
 
-        Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index'])
-            ->name('welcome');
+        /**
+         * Localized Indexable Routes
+         *
+         * @x-robots-tag all
+         */
+        Route::middleware('index')
+            ->group(function () {
 
+                Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index'])
+                    ->name('welcome');
+            });
+
+        /**
+         * Localized Admin Routes
+         *
+         * @x-robots-tag none
+         */
         Route::prefix(Localization::transRoute('routes.manage'))
             ->middleware('no.index')
             ->name('admin.')
@@ -27,12 +44,16 @@ Route::prefix(Localization::setLocale())
 
                 Route::middleware('auth')
                     ->group(function () {
+
                         Route::get('/', function () { echo 'test'; });
                     });
 
                 Route::middleware('guest')
                     ->group(function () {
+
                         Route::get(Localization::transRoute('routes.login'), [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'index'])
+                            ->name('login');
+                        Route::post(Localization::transRoute('routes.login'), [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store'])
                             ->name('login');
                     });
             });

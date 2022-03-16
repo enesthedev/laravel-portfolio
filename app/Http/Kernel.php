@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Indexable;
 use App\Http\Middleware\NoIndex;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter;
@@ -75,5 +76,6 @@ class Kernel extends HttpKernel
         'locale.cookie.redirect' => LocaleCookieRedirect::class,
         'locale.view.path' => LaravelLocalizationViewPath::class,
         'no.index' => NoIndex::class,
+        'index' => Indexable::class
     ];
 }
