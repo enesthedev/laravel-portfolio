@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if (! env('APP_DEBUG'))
+            try {
+                DB::connection()
+                    ->getPdo();
+            } catch (\Exception $e) {
+                abort($e instanceof \PDOException ? 503 : 500);
+            };
     }
 }
