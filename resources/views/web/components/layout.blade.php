@@ -11,20 +11,23 @@
 
     <link href="{{ asset("styles/tailwind.css") }}" rel="stylesheet">
 
+    {{ $styles }}
+
     <title>Document</title>
 </head>
-<body class="antialiased bg-white text-stone-800 dark:bg-stone-900 dark:text-stone-100">
+<body class="antialiased flex flex-col items-center justify-center bg-white text-stone-800 dark:bg-stone-900 dark:text-stone-100">
+    <x-header title="Merhaba, Ben Enes"
+              description="#front-end ile ilgileniyorum"
+              avatar="/assets/images/avatar.jpg"
+              :routes="[
+                ['title' => 'Giriş', 'path' => ''],
+                ['title' => 'Yazılarım', 'path' => ''],
+                ['title' => 'İletişim', 'path' => ''],
+              ]"
+    />
+    {{ $slot }}
 
-    <div class="flex flex-col max-w-screen-sm w-screen h-screen mx-auto pt-[5rem]">
-        <x-header :title="empty($applicationTitle) ? __('Application Title') : $applicationTitle"
-                  :description="! empty($description) ? $description : (empty($applicationDescription) ? __('Application Description') : $applicationDescription)"
-                  :routes="[
-                    [__('Home'), route('welcome')],
-                    [__('References'), ''],
-                    [__('Blog Posts'), '']
-                  ]"
-        ></x-header>
-        {{ $slot }}
-    </div>
+    <script src="{{ asset("scripts/script.js") }}" type="text/javascript"></script>
+    {{ $scripts }}
 </body>
 </html>
