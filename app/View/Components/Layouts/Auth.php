@@ -1,11 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Layouts;
 
 use Illuminate\Support\HtmlString;
 use Illuminate\View\Component;
+use function view;
 
-class AuthLayout extends Component
+class Auth extends Component
 {
 
     /**
