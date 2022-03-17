@@ -1,4 +1,4 @@
-<x-container styles="p-5 md:p-10 md:pb-4">
+<x-web.container styles="p-5 md:p-10 md:pb-4">
     @if(! (empty($title) && empty($description)))
         <div class="flex flex-col gap-y-5 md:gap-y-0 md:flex-row">
             @if(! empty($avatar))
@@ -18,10 +18,10 @@
             <ul class="text-center w-full md:text-right">
                 @foreach($routes as $route)
                     <li class="inline-block">
-                        <x-link :to="$route['path']" styles="ml-2">{{ __($route["title"]) }}</x-link>
+                        <x-web.link :to="$route['path']" styles="ml-2">{{ __($route["title"]) }}</x-web.link>
                     </li>
                 @endforeach
             </ul>
         </nav>
     @endif
-</x-container>
+</x-web.container>

@@ -16,7 +16,7 @@
     <title>Document</title>
 </head>
 <body class="antialiased flex flex-col items-center justify-center bg-white text-stone-800 dark:bg-stone-900 dark:text-stone-100">
-    <x-header title="Merhaba, Ben Enes"
+    <x-web.header title="Merhaba, Ben Enes"
               :description="$description"
               avatar="/assets/images/avatar.jpg"
               :routes="[
