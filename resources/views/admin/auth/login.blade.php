@@ -1,4 +1,16 @@
- <x-auth-layout>
+ <x-layouts.auth>
+     <x-slot:description>Sanırım buralarda yenisin. Devam etmek için giriş yapman gerekli olduğunu hatırlatmak isterim.</x-slot:description>
+     <x-slot:scripts>
+         @if($errors->any())
+             <script type="text/javascript">
+                 @foreach($errors->all() as $error)
+                 window.toast.error.fire({
+                     title: '{{ $error }}',
+                 })
+                 @endforeach
+             </script>
+         @endif
+     </x-slot:scripts>
      <div class="bg-[#151718] w-full pt-10 pb-5 px-5 flex items-center justify-center">
          <form class="w-full max-w-[500px] flex flex-col gap-y-5" method="post" action="{{ route('admin.login') }}">
              @method('POST')
@@ -36,16 +48,4 @@
              </div>
          </form>
      </div>
-
-     <x-slot:scripts>
-         @if($errors->any())
-             <script type="text/javascript">
-                 @foreach($errors->all() as $error)
-                    window.toast.error.fire({
-                        title: '{{ $error }}',
-                    })
-                 @endforeach
-             </script>
-         @endif
-     </x-slot:scripts>
- </x-auth-layout>
+ </x-layouts.auth>
