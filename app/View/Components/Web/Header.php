@@ -1,8 +1,9 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Web;
 
 use App\Classes\Framework\View\Component\TailwindComponent;
+use function view;
 
 class Header extends TailwindComponent
 {

@@ -1,6 +1,8 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Web;
+
+use function view;
 
 class Container extends \App\Classes\Framework\View\Component\TailwindComponent
 {

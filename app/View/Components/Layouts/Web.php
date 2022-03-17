@@ -6,7 +6,7 @@ use Illuminate\Support\HtmlString;
 use Illuminate\View\Component;
 use function view;
 
-class Layout extends Component
+class Web extends Component
 {
 
     /**
@@ -49,6 +49,6 @@ class Layout extends Component
      */
     public function render()
     {
-        return view('web.layouts.layout');
+        return view('web.layouts.web');
     }
 }
