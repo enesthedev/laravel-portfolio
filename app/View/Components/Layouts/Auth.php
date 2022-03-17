@@ -24,12 +24,20 @@ class Auth extends Component
     public HtmlString $styles;
 
     /**
+     * Page description.
+     *
+     * @var HtmlString
+     */
+    public HtmlString $description;
+
+    /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(HtmlString $styles = new HtmlString(), HtmlString $scripts = new HtmlString())
+    public function __construct(HtmlString $description = new HtmlString(), HtmlString $styles = new HtmlString(), HtmlString $scripts = new HtmlString())
     {
+        $this->description = $description;
         $this->styles = $styles;
         $this->scripts = $scripts;
     }

@@ -17,8 +17,8 @@
     <title>Document</title>
 </head>
 <body class="antialiased flex flex-col items-center justify-center bg-white text-stone-800 dark:bg-stone-900 dark:text-stone-100 h-screen gap-y-5 sm:h-auto sm:gap-0">
-    <x-header title="Merhaba, Ben Enes"
-              description="Sanırım buralarda yenisin. Devam etmek için giriş yapman gerekli olduğunu hatırlatmak isterim."
+    <x-admin.header title="Merhaba, Ben Enes"
+              :description="$description"
               avatar="/assets/images/avatar.jpg"
     />
     {{ $slot }}
