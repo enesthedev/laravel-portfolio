@@ -5,6 +5,7 @@ namespace App\Console\Commands\Auth;
 use App\Classes\Helpers\Command\CommandMessageHelper;
 use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules;
 
@@ -66,7 +67,7 @@ class CreateUserCommand extends Command
             return 1;
         }
 
-        User::create([ 'name' => $name, 'email' => $email, 'password' => $password])
+        User::create([ 'name' => $name, 'email' => $email, 'password' => Hash::make($password)])
             ?->markEmailAsVerified();
 
         $this->info("The '${name}' user created successfully.");
