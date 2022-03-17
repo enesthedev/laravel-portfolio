@@ -6,6 +6,7 @@ use App\Classes\Framework\View\Component\TailwindComponent;
 
 class Link extends TailwindComponent
 {
+
     /**
      * @var string
      */
