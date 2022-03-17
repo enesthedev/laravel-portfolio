@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Web;
+namespace App\View\Components\Admin;
 
 use App\Classes\Framework\View\Component\TailwindComponent;
 use function view;
@@ -32,6 +32,6 @@ class Link extends TailwindComponent
      */
     public function render()
     {
-        return view('web.components.link');
+        return view('admin.components.link');
     }
 }
