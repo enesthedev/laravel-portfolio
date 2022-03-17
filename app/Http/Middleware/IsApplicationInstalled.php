@@ -19,8 +19,12 @@ class IsApplicationInstalled
     public function handle(Request $request, Closure $next)
     {
         if (env('APP_DEBUG'))
-            if (! (new Filesystem())->exists(base_path() . '/.installed') && (User::count() < 1))
-                return redirect()->route('install.prepare');
+            if (! (new Filesystem())->exists(base_path() . '/.installed'))
+                try {
+                    User::count();
+                } catch (\PDOException $e) {
+                    return redirect()->route('install.prepare');
+                }
 
         return $next($request);
     }
