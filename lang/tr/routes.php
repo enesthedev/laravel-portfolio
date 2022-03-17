@@ -13,6 +13,7 @@ return [
     */
 
     'login' => 'oturum-ac',
-    'manage' => 'yonet'
+    'manage' => 'yonet',
+    'install' => 'kurulum-ekrani'
 
 ];

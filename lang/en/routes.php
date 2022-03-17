@@ -13,6 +13,7 @@ return [
     */
 
     'login' => 'sign-in',
-    'manage' => 'manage'
+    'manage' => 'manage',
+    'install' => 'install'
 
 ];

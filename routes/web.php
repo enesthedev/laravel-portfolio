@@ -13,48 +13,60 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization as Localization;
 |
 */
 
-/**
- * Localized Routes
- */
 Route::prefix(Localization::setLocale())
     ->middleware(['locale.session.redirect','localization.redirect','locale.view.path'])
     ->group(function () {
 
-        /**
-         * Localized Indexable Routes
-         *
-         * @x-robots-tag all
-         */
-        Route::middleware('index')
+        Route::prefix(Localization::transRoute('routes.install'))
+            ->name('install.')
+            ->middleware('if.installed')
             ->group(function () {
 
-                Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index'])
-                    ->name('welcome');
+                Route::get('/', [\App\Http\Controllers\InstallApplicationController::class, 'index'])
+                    ->name('prepare');
             });
 
-        /**
-         * Localized Admin Routes
-         *
-         * @x-robots-tag none
-         */
-        Route::prefix(Localization::transRoute('routes.manage'))
-            ->middleware('no.index')
-            ->name('admin.')
+        Route::middleware('is.installed')
             ->group(function () {
 
-                Route::middleware('auth')
+                /**
+                 * Localized Indexable Routes
+                 *
+                 * @x-robots-tag all
+                 */
+                Route::middleware('index')
                     ->group(function () {
 
-                        Route::get('/', function () { echo 'test'; });
+                        Route::get('/', [\App\Http\Controllers\WelcomeController::class, 'index'])
+                            ->name('welcome');
                     });
 
-                Route::middleware('guest')
+                /**
+                 * Localized Admin Routes
+                 *
+                 * @x-robots-tag none
+                 */
+                Route::prefix(Localization::transRoute('routes.manage'))
+                    ->middleware('no.index')
+                    ->name('admin.')
                     ->group(function () {
 
-                        Route::get(Localization::transRoute('routes.login'), [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'index'])
-                            ->name('login');
-                        Route::post(Localization::transRoute('routes.login'), [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store'])
-                            ->name('login');
+                        Route::middleware('auth')
+                            ->group(function () {
+
+                                Route::get('/', function () { echo 'test'; });
+                            });
+
+                        Route::middleware('guest')
+                            ->group(function () {
+
+                                Route::get(Localization::transRoute('routes.login'), [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'index'])
+                                    ->name('login');
+                                Route::post(Localization::transRoute('routes.login'), [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store'])
+                                    ->name('login');
+                            });
                     });
+
             });
+
     });
