@@ -27,12 +27,19 @@ window.toast = {
         showConfirmButton: false,
         timer: 5000,
         timerProgressBar: true,
-        customClass: { ...window.swal.config.toast.classes.error, ...window.swal.config.toast.classes.general },
+        customClass: window.swal.config.toast.classes.general,
         iconHtml: window.swal.config.toast.icons.error,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', window.swal.stopTimer)
-            toast.addEventListener('mouseleave', window.swal.resumeTimer)
-        }
+        ...window.swal.config.toast.functions
+    }),
+    success: window.swal.mixin({
+        toast: true,
+        position: 'bottom-end',
+        timer: 5000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+        customClass: window.swal.config.toast.classes.general,
+        iconHtml: window.swal.config.toast.icons.success,
+        ...window.swal.config.toast.functions
     })
 }
 
