@@ -72,6 +72,13 @@ class Select extends Component
     public string $selectedOption;
 
     /**
+     * Language prefix for translateable strings.
+     *
+     * @var string
+     */
+    public string $languagePrefix;
+
+    /**
      * Create a new component instance.
      *
      * @param array $options
@@ -83,8 +90,9 @@ class Select extends Component
      * @param string $selectFormName
      * @param array $variants
      * @param string $selectedOption
+     * @param string $languagePrefix
      */
-    public function __construct(string $selectLabelText, string $selectDomId, string $selectFormName, string $selectedOption = '', array $options = [], string $variant = 'light', string $labelStyles = '', string $selectStyles = '', array $variants = ['dark' => 'text-white', 'light' => 'text-black' ])
+    public function __construct(string $selectLabelText, string $selectDomId, string $selectFormName, string $languagePrefix = '', string $selectedOption = '', array $options = [], string $variant = 'light', string $labelStyles = '', string $selectStyles = '', array $variants = ['dark' => 'text-white', 'light' => 'text-black' ])
     {
         $this->selectDomId = $selectDomId;
         $this->selectFormName = $selectFormName;
@@ -97,6 +105,8 @@ class Select extends Component
 
         $this->variant = $variant;
         $this->variants = $variants;
+
+        $this->languagePrefix = $languagePrefix;
 
         $this->options = $options;
     }
