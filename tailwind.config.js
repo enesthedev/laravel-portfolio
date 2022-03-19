@@ -3,7 +3,8 @@ module.exports = {
         "./app/View/Components/**/*.php",
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
-        "./swal2.config.js"
+        "./swal2.config.js",
+        "./node_modules/flowbite/**/*.js"
     ],
     darkMode: "class",
     theme: {
@@ -14,6 +15,7 @@ module.exports = {
         },
     },
     plugins: [
-        require('@tailwindcss/forms')
+        require('@tailwindcss/forms'),
+        require('flowbite/plugin')
     ],
 }

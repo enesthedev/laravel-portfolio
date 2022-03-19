@@ -59,3 +59,8 @@ window.toast = {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/**
+ * Flowbite Javascript library for usefully Tailwind components.
+ */
+require('flowbite/dist/flowbite');
